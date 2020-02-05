@@ -1,13 +1,9 @@
+<br>
+<hr>
+<input type="text" placeholder="Buscar amigo" [(ngModel)]="query">
 <h3>Amigos</h3>
-<ng-container *ngFor="let user of friends;let i = index">
-    <div *ngIf="user.friend">
+<ng-container *ngFor="let user of friends | search: query;let i = index">
+    <div>
         <strong>{{i + 1}}. </strong><a routerLink="/conversation/{{user.uid}}">{{user.nick}} - {{user.email}} </a>
     </div>
-</ng-container>
-<hr>
-<h3>No agregados</h3>
-<ng-container *ngFor="let user of friends;let i = index">
-    <p *ngIf="!user.friend">
-        <strong>{{i + 1}}.</strong> {{user.nick}} - {{user.email}}
-    </p>
 </ng-container>

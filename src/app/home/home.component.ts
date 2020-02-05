@@ -9,6 +9,8 @@ import { UserService } from '../services/user.service';
 })
 export class HomeComponent implements OnInit {
 
+  query: string;
+
   friends: User[] = [];
 
   constructor(private userService: UserService) {
