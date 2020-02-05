@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    const myUSer: User = {
+      nick: 'Armando',
+      age: 24,
+      email: 'sze@gmail.com',
+      friend: true,
+      uid: 1
+    };
+    const users: User[] = [
+      myUSer
+    ];
+  }
 
   ngOnInit() {
   }
