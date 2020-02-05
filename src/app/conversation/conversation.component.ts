@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../models/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-conversation',
@@ -8,11 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ConversationComponent implements OnInit {
 
-  friendId: any;
+  friends: User[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  friendId: number;
+  friend: User;
+
+  constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {
     this.friendId = this.activatedRoute.snapshot.params.uid;
-    console.log(this.friendId);
+
+    this.friend = this.userService.getFriends().find(user => user.uid == this.friendId);
+
+    console.log(this.friend);
   }
 
   ngOnInit() {
