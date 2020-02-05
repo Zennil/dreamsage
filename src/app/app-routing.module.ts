@@ -9,7 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'conversation', component: ConversationComponent },
+  { path: 'conversation/:uid', component: ConversationComponent },
   { path: 'profile', component: ProfileComponent },
   { path: '**', redirectTo: 'home' }
 ];
