@@ -13,9 +13,16 @@
                 <div class="center">
                     <h3>Iniciar sesion</h3>
                 </div>
+                <p *ngIf="operation === 'register'">Ya tienes cuenta? Has <a href="javascript:" (click)="operation = 'login'">Login</a></p>
+                <p *ngIf="operation === 'login'">No tienes cuenta? <a href="javascript:" (click)="operation = 'register'">Registrarse</a></p>
                 <div class="bordered-container">
-                    <input type="email" placeholder="Ingrese su email" class="form-control">
-                    <input type="password" placeholder="Ingrese su constraseña" class="form-control">
+                    <input type="email" placeholder="Ingrese su email" class="form-control mb-3">
+                    <input type="password" placeholder="Ingrese su constraseña" class="form-control mb-3">
+                    <input *ngIf="operation === 'register'" type="text" placeholder="Ingrese su nick" class="form-control mb-3">
+                </div>
+                <div class="center">
+                    <a *ngIf="operation === 'login'" class="btn btn-primary">Iniciar sesion</a>
+                    <a *ngIf="operation === 'register'" class="btn btn-secondary">Registrarme</a>
                 </div>
             </div>
         </div>
